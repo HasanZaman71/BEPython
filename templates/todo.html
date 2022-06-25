@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    <title>Document</title>
+</head>
+<body>
+    <div class="rendered-form">
+       <form action="{{ url_for('new_todo')}}" method="post">
+        <div class="formbuilder-text form-group field-text-1655139979076">
+                <label for="text-1655139979076" class="formbuilder-text-label">Enter tasks:</label>
+                <input type="text" class="form-control" name="text-1655139979076" access="false" id="text-1655139979076">
+            </div>
+            <div class="formbuilder-button form-group field-button-1655139999880">
+                <button type="submit" class="button button1" name="button-1655139999880" access="false" id="button-1655139999880" formmethod="post" >Submit</button>
+            </div>
+        </form>   
+        <div class="">
+            <h1 access="false" id="control-3815195">Tasks to do:<br></h1></div>
+    </div>
+
+    <div>
+        {% for todo in todo_list %}
+            <p> {{todo.id}} : {{todo.title}}</p>
+            {% if todo.complete == False %}
+            <p>
+                Status: Not complted yet.
+                <form>
+                    <button type="submit" class="button button2" name="button-1655139999880" access="false" id="button-1655139999880" formaction="/update/{{ todo.id }}" >Mark as Complete</button>
+                    <button type="submit" class="button button3" name="button-1655139999880" access="false" id="button-1655139999880" formaction="/delete/{{ todo.id }}" >Delete</button>
+                </form>
+           </p>
+            {% else %}
+            <b>
+                Status: <p style="color:green">Completed</p>
+            </b>
+            <form>
+                <button type="submit" class="button button3" name="button-1655139999880" access="false" id="button-1655139999880" formaction="/delete/{{ todo.id }}" >Delete</button>
+            </form>
+            {%endif%}
+            <hr>
+        {% endfor %}
+
+    </div>
+</body>
+</html>

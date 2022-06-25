@@ -1,0 +1,4 @@
+psycopg2-binary
+Flask
+Flask-SQLAlchemy==2.5.1
+flask-migrate

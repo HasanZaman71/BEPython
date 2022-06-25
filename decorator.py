@@ -1,6 +1,9 @@
 
 
 
+import os
+
+
 def second_func(func):
     def inside_func():
         print("This is second function")
@@ -13,4 +16,5 @@ def second_func(func):
 def first_func():
     print("this is my first function")
 
-first_func()
+
+print(os.path.abspath(os.path.dirname(__file__)))
