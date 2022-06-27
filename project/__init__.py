@@ -16,3 +16,5 @@ app.config.from_object('project.config.Config')
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)
 cache = Cache(app)
+
+#Connection to postgres db is not working
