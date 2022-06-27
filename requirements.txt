@@ -2,3 +2,7 @@ psycopg2-binary
 Flask
 Flask-SQLAlchemy==2.5.1
 flask-migrate
+flask-caching
+redis
+python-dotenv
+celery==5.2.0
